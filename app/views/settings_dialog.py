@@ -374,6 +374,7 @@ class SettingsDialog(QDialog):
         self._do_steam_workshop_db_group(tab_layout)
         self._do_no_version_warning_db_group(tab_layout)
         self._do_use_this_instead_db_group(tab_layout)
+        self._do_rimworld_versions_db_group(tab_layout)
 
     def _do_backup_settings_group(self, tab_layout: QBoxLayout) -> None:
         backup_group_label = self._make_section_label(
@@ -658,6 +659,24 @@ class SettingsDialog(QDialog):
             self.use_this_instead_db_local_file_choose_button,
         ) = self.__create_db_group(section_lbl, none_lbl, tab_layout)
 
+    def _do_rimworld_versions_db_group(self, tab_layout: QBoxLayout) -> None:
+        section_lbl = self.tr("RimWorld Versions Database")
+        none_lbl = self.tr("RimWorld Versions Database")
+        (
+            _,
+            self.rimworld_versions_db_none_radio,
+            self.rimworld_versions_db_github_radio,
+            self.rimworld_versions_db_github_url,
+            self.rimworld_versions_db_github_upload_button,
+            self.rimworld_versions_db_github_download_button,
+            self.rimworld_versions_db_url_radio,
+            self.rimworld_versions_db_url_input,
+            self.rimworld_versions_db_url_download_button,
+            self.rimworld_versions_db_local_file_radio,
+            self.rimworld_versions_db_local_file,
+            self.rimworld_versions_db_local_file_choose_button,
+        ) = self.__create_db_group(section_lbl, none_lbl, tab_layout)
+
     def _do_aux_db_time_limit_group(self, tab_layout: QBoxLayout) -> None:
         self.aux_db_time_limit_label = self._make_section_label(
             "Auxiliary Metadata DB deletion time limit in seconds. (Delete instantly 0, Never Delete -1)"
@@ -868,6 +887,20 @@ This basically preserves your mod coloring, user notes etc. for this many second
         )
         updated_threshold_layout.addWidget(self.mod_list_updated_threshold_spinbox)
         modlist_option_group_box_layout.addLayout(updated_threshold_layout)
+
+        # Startup impact (load time) indicator checkbox
+        self.mod_list_startup_impact_checkbox = QCheckBox(
+            self.tr("Show startup load time per mod")
+        )
+        self.mod_list_startup_impact_checkbox.setToolTip(
+            self.tr(
+                "Shows each mod's game startup time, measured by the 'Loading "
+                "Progress' mod. Requires that mod with its 'Track startup loading "
+                "impact' setting enabled, and a saved startup impact report "
+                "(StartupImpactData.xml in the RimWorld save data folder)."
+            )
+        )
+        modlist_option_group_box_layout.addWidget(self.mod_list_startup_impact_checkbox)
 
         # Hide invalid mod filtering checkbox
         self.hide_invalid_mods_when_filtering_checkbox = QCheckBox(

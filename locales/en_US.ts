@@ -3010,6 +3010,22 @@ Please select your preferred mod variant in the table below. You can also open e
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Startup impact: {time}</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Off-thread (loading screen): {time}</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Measured {datetime} — total game startup: {time}</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Measured {datetime}</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Database not available</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4250,6 +4266,14 @@ See: https://www.rimworldwiki.com/wiki/Modding_Tutorials/About.xml</source>
     </message>
     <message>
         <source>Notifies and displays the mods that have the same packageid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show startup load time per mod</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shows each mod&apos;s game startup time, measured by the &apos;Loading Progress&apos; mod. Requires that mod with its &apos;Track startup loading impact&apos; setting enabled, and a saved startup impact report (StartupImpactData.xml in the RimWorld save data folder).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
